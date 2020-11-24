@@ -162,6 +162,7 @@ while True:
     move = None
 
     left, _, right = pygame.mouse.get_pressed()
+    
 
     # Check for a right-click to toggle flagging
     if right == 1 and not lost:
@@ -181,6 +182,7 @@ while True:
         # If AI button clicked, make an AI move
         if aiButton.collidepoint(mouse) and not lost:
             move = ai.make_safe_move()
+            flags = ai.mines.copy()
             if move is None:
                 print("safe move is : ",move)
                 move = ai.make_random_move()
